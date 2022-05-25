@@ -10,6 +10,5 @@ CREATE TABLE IF NOT EXISTS movies (
 CREATE TABLE IF NOT EXISTS users (
     user_id serial PRIMARY KEY,
     email VARCHAR NOT NULL,
-    password VARCHAR NOT NULL,
-    created_at DATE NOT NULL
+    password VARCHAR NOT NULL
 );

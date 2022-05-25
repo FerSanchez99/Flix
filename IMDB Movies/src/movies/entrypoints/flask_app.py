@@ -12,7 +12,7 @@ def login():
 
 @app.route("/signup", methods=["GET"])
 def signup():
-    return "Creación de Cuenta"
+    return render_template('signup.html')
 
 @app.route("/dashboard", methods=["GET"])
 def dashboard():
@@ -23,8 +23,10 @@ def dashboard():
 def auth_user():
     email = request.form['email']
     password = request.form['password']
-    if Login.auth(email, password):
-        return redirect("/dashboard")
-    else:
-        return "Contraseña inválida"
+    return Login.auth(email, password)
+    
+@app.route('/create_user', methods=['POST'])
+def create_user():
+    return "Usuario creado"
+    
     
