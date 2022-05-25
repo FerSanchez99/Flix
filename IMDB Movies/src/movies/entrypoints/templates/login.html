@@ -19,16 +19,25 @@
                     <label for="email">E-mail: </label>
                     <input type="text" id="email" name="email">
                     <label for="password">Contraseña: </label>
-                    <input type="text" id="password" name="password">
+                    <input type="password" id="password" name="password">
+                    <input type="checkbox" onclick="myFunction()">Show Password
                     <input type="submit" value="Entrar">
                 </form>
             </div>
             <div id="signup">
                 <a href="/signup">¿No tienes cuenta? ¡Crea una!</a>
             </div>
-            
-            
         </div>
+        <script>
+            function myFunction() {
+              var x = document.getElementById("password");
+              if (x.type === "password") {
+                x.type = "text";
+              } else {
+                x.type = "password";
+              }
+            }
+            </script>
     </body>
 </html>
 
