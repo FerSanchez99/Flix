@@ -18,6 +18,7 @@ RUN apt-get update \
     && apt-get install --no-install-recommends -y \
 	less htop inetutils-ping strace curl postgresql-client unzip
 
+RUN apt-get -y update && apt-get install -y libzbar-dev
 COPY requirements.txt /tmp/
 RUN pip install -r /tmp/requirements.txt
 

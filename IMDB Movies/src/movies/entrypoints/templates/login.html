@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Flix</title>
+        <!-- Font -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Odibee+Sans&family=Plus+Jakarta+Sans:wght@200&family=Teko:wght@300&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="../static/app.css" type="text/css">
+    </head>   
+    <body>
+        <div id="container">
+            <div id="header">
+                <img src="{{url_for ('static' , filename='flixlogo.png')}}" height="180px" width="300px" style="text-align: center;">
+            </div>
+            <div id="login-container">
+                <h1>LOGIN</h1>
+                <form id="login-form" action="/auth_user" method="POST">
+                    <label for="email">E-mail: </label>
+                    <input type="text" id="email" name="email">
+                    <label for="password">Contraseña: </label>
+                    <input type="text" id="password" name="password">
+                    <input type="submit" value="Entrar">
+                </form>
+            </div>
+            <div id="signup">
+                <a href="/signup">¿No tienes cuenta? ¡Crea una!</a>
+            </div>
+            
+            
+        </div>
+    </body>
+</html>
+
