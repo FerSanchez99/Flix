@@ -10,12 +10,13 @@ DEFAULT_SESSION_FACTORY = sessionmaker(
         )
 session = DEFAULT_SESSION_FACTORY()
 
-class DBpsql():
-    def getPassword(email):
-        query = session.execute("SELECT password FROM users WHERE email = '{email}'").fetchone()
+class dbpsql:
+    def getPassword(self, email):
+        global session
+        query = session.execute(f"SELECT password FROM users WHERE email = '{email}'").fetchone()
         if query != None: return query[0]
         return False
 
-    def register(email, password):
+    def register(self, email, password):
+        global session
         session.execute(f"INSERT INTO users (email, password) VALUES ('{email}', '{password}')")
-

@@ -2,7 +2,6 @@ from flask import Flask, request, render_template, redirect
 from movies import models
 import Login as l
 import SignUp as su
-import controller as db
 
 app = Flask(__name__)
 models.start_mappers()
@@ -23,7 +22,7 @@ def dashboard():
 def auth_user():
     email = request.form['email']
     password = request.form['password']
-    if l.Login.auth(email, password):
+    if l.login().auth(email, password):
         return redirect('/dashboard') 
     return redirect('/login')
     
@@ -31,7 +30,7 @@ def auth_user():
 def create_user():
     email = request.form['email']
     password = request.form['password']
-    su.SignUp.registerUser(email, password)
+    su.signUp().registerUser(email, password)
     return redirect('/login')
     
     

@@ -1,7 +1,4 @@
 import DBpsql as db
-class SignUp():
-    @staticmethod
-    def registerUser(user, password):
-        db.DBpsql.register(user,password)
-        
-     
+class signUp:
+    def registerUser(self, email, password):
+        db.dbpsql().register(email, password)
