@@ -1,5 +1,7 @@
 from flask import Flask, request, render_template, redirect
 from movies import models
+import Login as l
+import SignUp as su
 import controller as db
 
 app = Flask(__name__)
@@ -21,7 +23,7 @@ def dashboard():
 def auth_user():
     email = request.form['email']
     password = request.form['password']
-    if db.read(email, password):
+    if l.Login.auth(email, password):
         return redirect('/dashboard') 
     return redirect('/login')
     
@@ -29,7 +31,7 @@ def auth_user():
 def create_user():
     email = request.form['email']
     password = request.form['password']
-    db.create(email, password)
+    su.SignUp.registerUser(email, password)
     return redirect('/login')
     
     
