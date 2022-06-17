@@ -48,6 +48,7 @@ class User(Base):
     user_id = Column(Integer, primary_key=True)
     email = Column(String)
     password = Column(String)
+    preference_key = Column(Integer)
     #create_time = Column(TIMESTAMP(timezone=True), index=True)
 
 

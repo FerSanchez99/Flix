@@ -11,10 +11,11 @@ DEFAULT_SESSION_FACTORY = sessionmaker(
 session = DEFAULT_SESSION_FACTORY()
 
 class dbpsql:
+    current_user = None
     def getPassword(self, email):
         global session
         query = session.execute(f"SELECT password FROM users WHERE email = '{email}'").fetchone()
-        if query != None: return query[0]
+        if query != None: global current_user; current_user=query[0]; return query[0]
         return False
 
     def register(self, email, password):

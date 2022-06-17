@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Flix</title>
+        <!-- Font -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Odibee+Sans&family=Plus+Jakarta+Sans:wght@200&family=Teko:wght@300&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="../static/app.css" type="text/css">
+        <style>
+            .dashboard-main {
+                text-align: center;
+                background-color: #d9ffe3;
+                font-family: 'Teko', sans-serif;
+            }
+        </style>
+    </head>   
+    <body>
+        <div id="container">
+            <div id="header">
+                <img src="{{url_for ('static' , filename='flixlogo.png')}}" height="180px" width="300px" style="text-align: center;">
+            </div>
+            <div class="dashboard-main">
+                <h1>Bienvenido {{user}} </h1>
+                <h2>Tus recomendaciones: </h2>
+                <a href="/genres">Escoge tus géneros de película favoritos</a>
+            </div>
+        </div>
+    </body>
+</html>
+
