@@ -18,7 +18,7 @@ class dbpsql:
         if query != None: return query[0]
         return False
 
-    def register(self, email, password):
+    def registerUser(self, email, password):
         session.execute(f"INSERT INTO users (email, password) VALUES ('{email}', '{password}')")
         session.commit()
 

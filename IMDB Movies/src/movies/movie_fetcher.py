@@ -40,17 +40,22 @@ def main():
         movie_string = movies[index].get_text()
         movie = (' '.join(movie_string.split()).replace('.', ''))
         movie_title = movie[len(str(index)) + 1:-7]
+        movie_title = movie_title.replace("'", "")
         year = re.search('\((.*?)\)', movie_string).group(1)
         place = movie[:len(str(index)) - (len(movie))]
+        pk = index % 4 + 1
+        rating = ratings[index]
 
         data = {"movie_title": movie_title,
                 "year": year,
                 "place": place,
                 "star_cast": crew[index],
-                "rating": ratings[index],
+                "rating": rating,
                 "vote": votes[index],
                 "link": links[index],
-                "preference_key": index % 4 + 1}
+                "preference_key": pk}
+        session.execute(f"INSERT INTO movies (preference_key, movie_title, rating, year) VALUES ({pk}, '{movie_title}', {rating}, {year})")       
+        session.commit()
         list.append(data)
 
     fields = ["preference_key", "movie_title", "star_cast", "rating", "year", "place", "vote", "link"]

@@ -1,8 +1,9 @@
 from flask import Flask, request, render_template, redirect
 from movies import models
-import DBpsql as dbUser
 import Login as l
 import SignUp as su
+import Recommendation as r
+import movie_fetcher as mf
 
 app = Flask(__name__)
 models.start_mappers()
@@ -21,7 +22,8 @@ def signup():
 
 @app.route("/dashboard", methods=["GET"])
 def dashboard():
-    pk = dbUser.dbpsql().getPreferenceKey(dbUser.current_user)
+    user = r.recommendation().getUser()
+    pk = r.recommendation().getRec(user)
     if pk == None: pk = -1
     return render_template('dashboard.html', preferenceKey = pk)
 
@@ -31,9 +33,11 @@ def genres():
 
 @app.route('/auth_user', methods=['POST'])
 def auth_user():
+    #mf.main() only called once to init movies table
     email = request.form['email']
     password = request.form['password']
     if l.login().auth(email, password):
+
         return redirect('/dashboard')
     return redirect('/login')
     
@@ -46,9 +50,9 @@ def create_user():
 
 @app.route('/save_pref', methods=['POST'])
 def save_pref():
+    user = r.recommendation().getUser()
     c1 = request.form['cat1']
     c2 = request.form['cat2']
     c3 = request.form['cat3']
-    pk = c1 + c2 + c3
-    dbUser.dbpsql().savePreferences(dbUser.current_user, pk)
+    r.recommendation().setPreferences(user, c1, c2, c3)
     return redirect('/dashboard')

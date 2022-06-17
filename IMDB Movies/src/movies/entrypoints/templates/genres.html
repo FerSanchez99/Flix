@@ -13,8 +13,9 @@
                 background-color: #d9ffe3;
                 font-family: 'Teko', sans-serif;
             }
-            .dashboard-main input {
+            .dashboard-main select {
                 width: 33%;
+                height: 5vh;
                 color: black;
                 display: block;
                 margin : 0 auto;
@@ -38,9 +39,42 @@
             <div class="dashboard-main">
                 <h1>Elige 3 categorias</h1>
                 <form action="/save_pref" method="post">
-                    <input type="text" name="cat1" required>
-                    <input type="text" name="cat2" required>
-                    <input type="text" name="cat3" required>
+                    <select name="cat1" id="cat1">
+                        <option value="">Categoria 1</option>
+                        <option value="1">Acción</option>
+                        <option value="2">Comedia</option>
+                        <option value="3">Drama</option>
+                        <option value="4">Fantasía</option>
+                        <option value="1">Horror</option>
+                        <option value="2">Misterio</option>
+                        <option value="3">Romance</option>
+                        <option value="4">Thriller</option>
+                        <option value="1">Western</option>
+                    </select>
+                    <select name="cat2" id="cat2">
+                        <option value="">Categoria 2</option>
+                        <option value="1">Acción</option>
+                        <option value="2">Comedia</option>
+                        <option value="3">Drama</option>
+                        <option value="4">Fantasía</option>
+                        <option value="1">Horror</option>
+                        <option value="2">Misterio</option>
+                        <option value="3">Romance</option>
+                        <option value="4">Thriller</option>
+                        <option value="1">Western</option>
+                    </select>
+                    <select name="cat3" id="cat3">
+                        <option value="">Categoria 3</option>
+                        <option value="1">Acción</option>
+                        <option value="2">Comedia</option>
+                        <option value="3">Drama</option>
+                        <option value="4">Fantasía</option>
+                        <option value="1">Horror</option>
+                        <option value="2">Misterio</option>
+                        <option value="3">Romance</option>
+                        <option value="4">Thriller</option>
+                        <option value="1">Western</option>
+                    </select>
                     <button type="submit">Guardar</button>
                 </form>
             </div>
