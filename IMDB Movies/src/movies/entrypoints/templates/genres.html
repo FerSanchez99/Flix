@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Flix</title>
+        <!-- Font -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Odibee+Sans&family=Plus+Jakarta+Sans:wght@200&family=Teko:wght@300&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="../static/app.css" type="text/css">
+        <style>
+            .dashboard-main {
+                text-align: center;
+                background-color: #d9ffe3;
+                font-family: 'Teko', sans-serif;
+            }
+            .dashboard-main input {
+                width: 33%;
+                color: black;
+                display: block;
+                margin : 0 auto;
+                margin-bottom: 2vh;
+            }
+            .dashboard-main button {
+                width: 10%;
+                height: 5vh;
+                background-color: #FFD9F5;
+                border-color: #FFD9F5;
+                font-style: bold;
+                font-size: 2.75vh;
+            }
+        </style>
+    </head>   
+    <body>
+        <div id="container">
+            <div id="header">
+                <img src="{{url_for ('static' , filename='flixlogo.png')}}" height="180px" width="300px" style="text-align: center;">
+            </div>
+            <div class="dashboard-main">
+                <h1>Elige 3 categorias</h1>
+                <form action="/save_pref" method="post">
+                    <input type="text" name="cat1" required>
+                    <input type="text" name="cat2" required>
+                    <input type="text" name="cat3" required>
+                    <button type="submit">Guardar</button>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

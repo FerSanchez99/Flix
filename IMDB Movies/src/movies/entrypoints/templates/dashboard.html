@@ -21,11 +21,28 @@
                 <img src="{{url_for ('static' , filename='flixlogo.png')}}" height="180px" width="300px" style="text-align: center;">
             </div>
             <div class="dashboard-main">
-                <h1>Bienvenido {{user}} </h1>
-                <h2>Tus recomendaciones: </h2>
-                <a href="/genres">Escoge tus géneros de película favoritos</a>
+                <h1>Bienvenido</h1>
+                <div id="cat">
+                    <h2>Tus recomendaciones: </h2>
+                    <a href="/genres">Edita tus géneros de película favoritos</a>
+                </div>
+                <div id="pref">
+                    <a href="/genres">Escoge tus géneros de película favoritos</a>
+                </div>
             </div>
         </div>
     </body>
 </html>
 
+<script>
+    function init() {
+        if({{preferenceKey}} == -1){
+            document.getElementById("cat").style.display = "none";
+        }
+        else{
+            document.getElementById("pref").style.display = "none";
+        }
+    }
+    
+    document.addEventListener('DOMContentLoaded', init, false);
+</script>
