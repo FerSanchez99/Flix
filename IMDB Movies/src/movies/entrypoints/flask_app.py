@@ -23,9 +23,12 @@ def signup():
 @app.route("/dashboard", methods=["GET"])
 def dashboard():
     user = r.recommendation().getUser()
-    pk = r.recommendation().getRec(user)
+    pk = r.recommendation.getPK(user)
+    movies_rec = []
+    if pk:
+        movies_rec = r.recommendation.getMoviesRec(pk)
     if pk == None: pk = -1
-    return render_template('dashboard.html', preferenceKey = pk)
+    return render_template('dashboard.html', movies_rec = movies_rec, preferenceKey = pk)
 
 @app.route('/genres', methods=['GET'])
 def genres():
@@ -33,11 +36,10 @@ def genres():
 
 @app.route('/auth_user', methods=['POST'])
 def auth_user():
-    #mf.main() only called once to init movies table
+    mf.main() #only called once to init movies table
     email = request.form['email']
     password = request.form['password']
-    if l.login().auth(email, password):
-
+    if l.login.auth(email, password):
         return redirect('/dashboard')
     return redirect('/login')
     
@@ -45,7 +47,7 @@ def auth_user():
 def create_user():
     email = request.form['email']
     password = request.form['password']
-    su.signUp().registerUser(email, password)
+    su.signUp.register(email, password)
     return redirect('/login')
 
 @app.route('/save_pref', methods=['POST'])

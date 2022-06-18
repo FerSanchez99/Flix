@@ -8,7 +8,7 @@ session = Session()
 current_user = None
 
 class dbpsql:
-    def getPassword(self, email):
+    def getPassword(email):
         query = session.execute(f"SELECT user_id, password FROM users WHERE email = '{email}'").fetchone()
         if query != None: global current_user; current_user=query[0]; return query[1]
         return False
@@ -18,10 +18,16 @@ class dbpsql:
         if query != None: return query[0]
         return False
 
-    def registerUser(self, email, password):
+    def registerUser(email, password):
         session.execute(f"INSERT INTO users (email, password) VALUES ('{email}', '{password}')")
         session.commit()
 
     def savePreferences(self, user_id, preference_key):
         session.execute(f"UPDATE users SET preference_key={preference_key} WHERE user_id='{user_id}'")        
         session.commit()
+
+    def getMoviesRec(pk):
+        query = session.execute(f"SELECT movie_title, year, rating, link FROM movies WHERE preference_key={pk} LIMIT 3")   
+        if query != None: return list(query)
+        return False    
+

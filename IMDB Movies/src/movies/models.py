@@ -39,6 +39,7 @@ class Movie(Base):
     movie_title = Column(String)
     rating = Column(Float)
     year = Column(Integer)
+    link = Column(String)
     create_time = Column(TIMESTAMP(timezone=True), index=True)
 
 

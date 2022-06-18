@@ -54,7 +54,7 @@ def main():
                 "vote": votes[index],
                 "link": links[index],
                 "preference_key": pk}
-        session.execute(f"INSERT INTO movies (preference_key, movie_title, rating, year) VALUES ({pk}, '{movie_title}', {rating}, {year})")       
+        session.execute(f"INSERT INTO movies (preference_key, movie_title, rating, year, link) VALUES ({pk}, '{movie_title}', {rating}, {year}, '{links[index]}')")       
         session.commit()
         list.append(data)
 

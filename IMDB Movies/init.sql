@@ -4,6 +4,7 @@ CREATE TABLE IF NOT EXISTS movies (
     movie_title VARCHAR NOT NULL,
     rating DOUBLE NOT NULL,
     year INTEGER NOT NULL,
+    link VARCHAR NOT NULL, 
     created_at DATE NOT NULL
 );
 
