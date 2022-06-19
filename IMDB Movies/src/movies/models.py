@@ -5,6 +5,7 @@ from sqlalchemy import (
     Integer,
     String,
     Float,
+    Boolean,
     TIMESTAMP,
     Text,
     create_engine
@@ -50,6 +51,7 @@ class User(Base):
     email = Column(String)
     password = Column(String)
     preference_key = Column(Integer)
+    ordered_rec = Column(Boolean)
     #create_time = Column(TIMESTAMP(timezone=True), index=True)
 
 

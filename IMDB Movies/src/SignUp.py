@@ -1,4 +1,5 @@
-import DBpsql as db
+import DBpsql
+
 class signUp:
-    def register(email, password):
-        db.dbpsql.registerUser(email, password)
+    def register(self, email, password):
+        DBpsql.db.registerUser(email, password)

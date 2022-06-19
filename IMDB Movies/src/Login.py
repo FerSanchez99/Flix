@@ -1,7 +1,7 @@
-import DBpsql as db
+import DBpsql
+
 class login:
-    def auth(email, password):
-        ans = db.dbpsql.getPassword(email)
-        if ans != False:
-            return password == ans
+    def auth(self, email, password):
+        ans = DBpsql.db.getPassword(email)
+        if ans != False: return password == ans
         return False
