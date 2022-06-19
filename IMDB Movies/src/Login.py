@@ -1,5 +1,7 @@
-class Login():
-    @staticmethod
-    def auth(user, password):
-        #Conectar a db y realizar lógic
-        return True
+import DBpsql
+
+class login:
+    def auth(self, email, password):
+        ans = DBpsql.db.getPassword(email)
+        if ans != False: return password == ans
+        return False

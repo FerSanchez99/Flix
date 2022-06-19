@@ -5,6 +5,7 @@ from sqlalchemy import (
     Integer,
     String,
     Float,
+    Boolean,
     TIMESTAMP,
     Text,
     create_engine
@@ -39,6 +40,7 @@ class Movie(Base):
     movie_title = Column(String)
     rating = Column(Float)
     year = Column(Integer)
+    link = Column(String)
     create_time = Column(TIMESTAMP(timezone=True), index=True)
 
 
@@ -48,6 +50,8 @@ class User(Base):
     user_id = Column(Integer, primary_key=True)
     email = Column(String)
     password = Column(String)
+    preference_key = Column(Integer)
+    ordered_rec = Column(Boolean)
     #create_time = Column(TIMESTAMP(timezone=True), index=True)
 
 

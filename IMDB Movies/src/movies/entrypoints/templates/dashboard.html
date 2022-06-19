@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Flix</title>
+        <!-- Font -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Odibee+Sans&family=Plus+Jakarta+Sans:wght@200&family=Teko:wght@300&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="../static/app.css" type="text/css">
+    </head>   
+    <body>
+        <div id="container">
+            <div id="header">
+                <img src="{{url_for ('static' , filename='flixlogo.png')}}" height="180px" width="300px" style="text-align: center;">
+            </div>
+            <div class="dashboard-main">
+                <h1>Bienvenido</h1>
+                <div id="cat">
+                    <h2>Tus recomendaciones: </h2>
+                    <div id="rec_movies">
+                        <table>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Año</th>
+                                <th>Rating</th>
+                            </tr>
+                            {% for movie in movies_rec %}
+                            <tr>
+                                <td>{{movie[0]}}</td>
+                                <td>{{movie[1]}}</td>
+                                <td>{{movie[2]}}</td>
+                                
+                                <td><a target="_blank" href="https://www.imdb.com{{movie[3]}}">Ver</a></td>
+                            </tr>
+                            {% endfor %}
+                        </table>
+                    </div>
+                    <br>
+                    <a href="/genres">Edita tus géneros de película favoritos</a>
+                </div>
+                <div id="pref">
+                    <a href="/genres">Escoge tus géneros de película favoritos</a>
+                </div>
+                <br>
+                <a href="/login">Logout</a>
+                <br><br>
+            </div>
+        </div>
+    </body>
+</html>
+
+<script>
+    function init() {
+        if({{preferenceKey}} == -1){
+            document.getElementById("cat").style.display = "none";
+        }
+        else{
+            document.getElementById("pref").style.display = "none";
+        }
+    }
+    
+    document.addEventListener('DOMContentLoaded', init, false);
+</script>

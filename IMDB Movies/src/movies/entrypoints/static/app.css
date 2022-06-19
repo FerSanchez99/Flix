@@ -69,3 +69,27 @@ input[type=password] {
     margin: auto;
     font-size: 25px;
 }
+
+/* Dashboard movies recs */
+.dashboard-main {
+    font-size: 20px;
+    text-align: center;
+    background-color: #d9ffe3;
+    font-family: 'Teko', sans-serif;
+}
+#rec_movies{
+    text-align: center;
+    margin: 0 auto;
+    width: 60%;
+}
+table {
+    margin: 0 auto;
+    font-size: 30px;
+}
+td {
+    padding: 0 10px;
+}
+
+th {
+    color: #fa3737;
+}
