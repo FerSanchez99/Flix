@@ -1,6 +1,6 @@
 # Flix
 Equipo: 
-María Fernanda Sánchez Rivera A01570306
+María Fernanda Sánchez Rivera A01570306. 
 Axel Iván Rodríguez Méndez    A01570152
 
 Documentación: https://docs.google.com/document/d/17oFwzVsim2ZDfbkTYMaN-6dXvLa74nUOc6u0AXONThc/edit?usp=sharing.  
